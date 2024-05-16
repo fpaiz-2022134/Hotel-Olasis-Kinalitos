@@ -15,7 +15,7 @@
 }
 
 #navbar {
-    background: #333333;
+    background: #5c9b82;
     /* Cambio de color */
 }
 
@@ -24,17 +24,17 @@
     font-weight: 550;
     color: #ffffff;
     /* Cambio de color */
-    text-shadow: 0px 1px 1px #333333;
+    text-shadow: 0px 1px 1px #5c9b82;
     /* Cambio de color */
     margin-bottom: 5px;
 }
 
 #logo span {
-    color: #39b400;
+    color: #1e3bb0;
 }
 
 .navbar-toggler span {
-    color: #39b400;
+    color: #1e3bb0;
 }
 
 .navbar-nav {
@@ -52,7 +52,7 @@
 }
 
 .nav-item .nav-link:hover {
-    background: #39b400;
+    background: #1e3bb0;
     color: #ffffff;
     /* Cambio de color */
 }
@@ -112,7 +112,7 @@
     /* Cambio de color */
     font-size: 38px;
     font-weight: 550;
-    text-shadow: 0px 1px 1px #333333;
+    text-shadow: 0px 1px 1px #5c9b82;
     /* Cambio de color */
 }
 
@@ -121,7 +121,7 @@
     /* Cambio de color */
     font-size: 70px;
     font-weight: 550;
-    text-shadow: 0px 1px 1px #333333;
+    text-shadow: 0px 1px 1px #5c9b82;
     /* Cambio de color */
     margin-top: 5px;
 }
@@ -129,7 +129,7 @@
 .changecontent::after {
     content: ' ';
     color: #ffa500;
-    text-shadow: 0px 1px 1px #333333;
+    text-shadow: 0px 1px 1px #5c9b82;
     /* Cambio de color */
     animation: changetext 10s infinite linear;
 }
@@ -185,7 +185,7 @@
     /* Cambio de color */
     font-size: 15px;
     font-weight: 600;
-    text-shadow: 0px 1px 1px #333333;
+    text-shadow: 0px 1px 1px #5c9b82;
     /* Cambio de color */
     margin-bottom: 30px;
     margin-top: 5px;
@@ -195,7 +195,7 @@
     padding: 10px;
     background: #ffffff;
     /* Cambio de color */
-    color: #333333;
+    color: #157951;
     /* Cambio de color */
     letter-spacing: 2px;
     font-weight: 550;
@@ -205,9 +205,13 @@
 }
 
 .home .content a:hover {
-    background: #39b400;
+    background: #27c834;
     color: #ffffff;
     /* Cambio de color */
+}
+
+.card-body a: hover{
+    background: #27c834;
 }
 
 @media (max-width:850px) {
@@ -238,7 +242,7 @@
 }
 
 .book {
-    background: #333333;
+    background: #5c9b82;
     /* Cambio de color */
     padding: 50px;
 }
@@ -251,14 +255,14 @@
 }
 
 .main-text h1 span {
-    color: #39b400;
+    color: #1e3bb0;
 }
 
 .book .card {
     justify-content: space-evenly;
     margin-right: 50px;
     border-radius: 10px;
-    box-shadow: 0px 5px 5px -6px #333333;
+    box-shadow: 0px 5px 5px -6px #5c9b82;
     /* Cambio de color */
 }
 
@@ -270,13 +274,13 @@
 
 .book form input {
     padding: 10px;
-    color: #333333;
+    color: #5c9b82;
     /* Cambio de color */
     border: none;
     outline: none;
     font-size: 15px;
     border-radius: 10px;
-    box-shadow: 0px 5px 5px -6px #333333;
+    box-shadow: 0px 5px 5px -6px #5c9b82;
     /* Cambio de color */
 }
 
@@ -284,7 +288,7 @@
     border: none;
     border-radius: 10px;
     resize: none;
-    box-shadow: 0px 5px 5px -6px #333333;
+    box-shadow: 0px 5px 5px -6px #5c9b82;
     /* Cambio de color */
     height: 200px;
 }
@@ -293,7 +297,7 @@
     width: 160px;
     font-size: 16px;
     font-weight: 550;
-    background: #39b400;
+    background: #1e3bb0;
     color: #ffffff;
     /* Cambio de color */
     margin-top: 10px;
@@ -324,7 +328,7 @@
 }
 
 .main-txt h1 span {
-    color: #39b400;
+    color: #1e3bb0;
 }
 
 .packages .card {
@@ -365,14 +369,14 @@
 .packages .card .card-body a {
     padding: 10px;
     text-decoration: none;
-    background: #39b400;
-    color: #333333;
+    background: #20b01e;
+    color: white;
     /* Cambio de color */
     border-radius: 5px;
 }
 
 .services {
-    background: #333333;
+    background: #5c9b82;
     /* Cambio de color */
     margin-top: 50px;
 }
@@ -422,7 +426,7 @@
 .about {
     padding: 50px;
     margin-top: 50px;
-    background: #333333;
+    background: #5c9b82;
     /* Cambio de color */
 }
 
@@ -437,7 +441,7 @@
 .about h2 {
     font-weight: 600;
     letter-spacing: 1px;
-    color: #39b400;
+    color: #1e3bb0;
 }
 
 .about p {
@@ -473,7 +477,7 @@
     width: 100%;
     margin-top: 150px;
     text-align: center;
-    background: #333333;
+    background: #5c9b82;
     /* Cambio de color */
 }
 
@@ -486,5 +490,5 @@
 }
 
 #footer h1 span {
-    color: #39b400;
+    color: #1e3bb0;
 }

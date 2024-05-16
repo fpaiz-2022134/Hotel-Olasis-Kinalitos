@@ -34,10 +34,10 @@ export const RoomCard = ({ rooms = [] }) => {
                         <h5 className="room-card-title">{room.number}</h5>
                     </div>
                     <div className="card-body">
-                        <p className="room-card-text">Description: {room.description}</p>
-                        <p className="room-card-text">Capacity: {room.capacity}</p>
-                        <p className="room-card-text">Type: {room.type}</p>
-                        <p className="room-card-text-user">Price: {room.price}</p>
+                        <p className="room-card-text"><strong>Descripción:</strong> {room.description}</p>
+                        <p className="room-card-text"><strong>Capacidad:</strong> {room.capacity}</p>
+                        <p className="room-card-text"><strong>Tipo de habitación:</strong> {room.type}</p>
+                        <p className="room-card-text-user">Precio: {room.price}</p>
                         <div className="star">
                             <i className="fa-solid fa-star checked"></i>
                             <i className="fa-solid fa-star checked"></i>

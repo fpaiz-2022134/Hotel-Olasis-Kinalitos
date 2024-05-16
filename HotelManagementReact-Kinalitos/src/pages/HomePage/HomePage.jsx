@@ -131,7 +131,7 @@ export const HomePage = () => {
                                 </div>
                                 <div className="login-prompt">
                                     <p>Por favor, inicia sesión para realizar una reserva.</p>
-                                    <button class="btn btn-primary btn-lg justify-content-center" id="login-button">Iniciar sesión</button>
+                                    <button className="btn btn-primary btn-lg justify-content-center" id="login-button">Iniciar sesión</button>
 
                                 </div>
                                 {/* <div className="login-prompt">
@@ -364,7 +364,7 @@ export const HomePage = () => {
                                     <img src={aboutImg} alt="" />
                                 </div>
                             </div>
-                            <div className="col-md-6 py-3 py-md-0">
+                            <div className="col-md-6 py-3 py-md-0 justify-content-center w">
                                 <h2>¿Quienes Somos?</h2>
                                 <p>
                                     Olasis es una empresa de hospitalidad dedicada a ofrecer servicios de alojamiento de primera clase a viajeros
