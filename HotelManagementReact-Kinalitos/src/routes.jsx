@@ -1,8 +1,13 @@
 import { Room } from "./pages/Room/Room.jsx"
+import { HomePage } from "./pages/HomePage/HomePage.jsx"
 
 export const routes = [
     {
-        path: '/room',
-        element: <Room/>
+        path: '/',
+        element: <HomePage />
+    },
+    {
+        path: '/room/*',
+        element: <Room />
     }
 ]

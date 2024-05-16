@@ -58,9 +58,25 @@ export const deleteRoom = async(req, res)=>{
 
 export const getRooms = async(req, res) =>{
     try {
-        let rooms = await Room.find()
-        if(!rooms) return res.status(404).send({ message: 'Rooms not found' })
-        return res.send({ message: 'Rooms found', rooms })
+        let data = await Room.find()
+
+        const rooms = data
+        .map((data)=>{
+            return{
+                id: data._id,
+                number: data.number,
+                description: data.description,
+                capacity: data.capacity,
+                type:data.type,
+                price: data.price,
+                status: data.status,
+                hotelid: data.hotelid
+            }
+        })
+
+        return res.status(200).json({rooms})
+
+        
     } catch (error) {
         console.error(error)
         return res.status(500).send({message: 'Error getting rooms'})
