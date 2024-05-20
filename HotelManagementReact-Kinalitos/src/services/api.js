@@ -16,15 +16,24 @@ export const getRoomsRequest = async()=>{
     }
 }
 
-export const getReservationsRequest = async() => {
-    try {
-        return await apiClient.get('/reservation/getReservation')
-    } catch (err) {
+export const saveReservationRequest = async(data)=>{
+    try{
+        return await apiCliente.post('/reservation/addReservation', data)
+    }catch(err){
         return {
             error: true,
             err
         }
-        
     }
-}
+  }
 
+  export const getReservationRequest = async() => {
+    try{
+      return await apiCliente.get('/reservation/getReservations')
+    }catch(err){
+      return {
+        error: true,
+        err
+      }
+    }
+  }

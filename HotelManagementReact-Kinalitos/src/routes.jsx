@@ -12,7 +12,7 @@ export const routes = [
         element: <Room />
     },
     {
-        path: '/reservation/',
+        path: '/reservation',
         element: <Reservation/>
     }
 ]
