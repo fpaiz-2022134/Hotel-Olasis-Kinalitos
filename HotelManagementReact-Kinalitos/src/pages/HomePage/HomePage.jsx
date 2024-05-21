@@ -1,9 +1,12 @@
 import React from "react";
 
+import { Link } from "react-router-dom";
+
 import { ClockLoader } from "react-spinners";
 import { useEffect } from "react";
 import { useGetRooms } from "../../shared/Hooks/Room/useGetRooms";
-import { Link } from "react-router-dom";
+import { useGetHotels } from "../../shared/Hooks/Hotel/useGetHotels";
+
 import "../HomePage/HomePage.css";
 import aboutImg from "../../assets/about-img.png"
 import book from "../../assets/book-img.png"
@@ -19,22 +22,24 @@ import popular4 from "../../assets/Popular4.png"
 import popular5 from "../../assets/Popular5.png"
 import popular6 from "../../assets/Popular6.png"
 import { RoomCard } from "../../components/Room/RoomCard";
+import { HotelCard } from "../../components/Hotel/HotelCard";
 
 export const HomePage = () => {
 
-    //Traer datos del Room
-    const { rooms, getRooms, isFetching } = useGetRooms()
+    const { rooms, getRooms, isFetching: isFetchingRooms } = useGetRooms();
+    const { hotels, getHotels, isFetching: isFetchingHotels } = useGetHotels();
 
     useEffect(() => {
-        getRooms()
-    }, [])
+        getRooms();
+        getHotels();
+    }, []);
 
-    if (isFetching) {
+    if (isFetchingRooms || isFetchingHotels) {
         return (
             <div className="container d-flex align-items-center justify-content-center vh-100">
                 <ClockLoader />
             </div>
-        )
+        );
     }
 
 
@@ -77,12 +82,17 @@ export const HomePage = () => {
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#book">
-                                        Reserva
+                                        Inicio
                                     </a>
                                 </li>
                                 <li className="nav-item">
                                     <a className="nav-link" href="#packages">
-                                        Ofertas
+                                        Hoteles
+                                    </a>
+                                </li>
+                                <li className="nav-item">
+                                    <a className="nav-link" href="#packages">
+                                        Habitaciones
                                     </a>
                                 </li>
                                 <li className="nav-item">
@@ -131,8 +141,9 @@ export const HomePage = () => {
                                 </div>
                                 <div className="login-prompt">
                                     <p>Por favor, inicia sesión para realizar una reserva.</p>
-                                    <button className="btn btn-primary btn-lg justify-content-center" id="login-button">Iniciar sesión</button>
-
+                                    <Link to="/user/" className="btn btn-primary btn-lg justify-content-center" id="login-button">
+                                        Iniciar sesión
+                                    </Link>
                                 </div>
                                 {/* <div className="login-prompt">
                                     <button class="btn btn-primary btn-lg justify-content-center" id="login-button">Registrarme</button>
@@ -144,81 +155,22 @@ export const HomePage = () => {
 
                 <section className="packages" id="packages">
                     <div className="container">
-                        <div className="main-txt">
-                            <h1>
-                                <span>Habitaciones</span>
-                            </h1>
+                        <div className="hotels">
+                            <div className="main-txt">
+                                <h1>
+                                    <span>Hoteles</span>
+                                </h1>
+                            </div>
+
+                            <HotelCard hotels={hotels} />
                         </div>
-                        <div className="row" style={{ marginTop: 30 + 'px' }}>
-                            <div className="col-md-4 py-3 py-md-0">
-                                <div className="card">
-                                    <img src={valencia} alt="" />
-                                    <div className="card-body">
-                                        <h3>The Westin Camino Real</h3>
-                                        <p>
-                                            Hotel Valencia y haz de tu estancia en la ciudad una experiencia única e inolvidable. Alójate en el centro histórico de la ciudad de Valencia
-                                        </p>
-                                        <div className="star">
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                        </div>
-                                        <h6>
-                                            Precio: <strong>Q769</strong>
-                                        </h6>
-                                        <a href="#book">Reserva ahora</a>
-                                    </div>
-                                </div>
+                        <div className="rooms">
+                            <div className="main-txt">
+                                <h1>
+                                    <span>Habitaciones</span>
+                                </h1>
                             </div>
-                            <div className="col-md-4 py-3 py-md-0">
-                                <div className="card">
-                                    <img src={barcelo} alt="" />
-                                    <div className="card-body">
-                                        <h3>Hotel Casa Veranda</h3>
-                                        <p>
-                                            Este hotel urbano de 5 estrellas dispone de 397 elegantes habitaciones equipadas
-                                        </p>
-                                        <div className="star">
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                        </div>
-                                        <h6>
-                                            Precio: <strong>Q700</strong>
-                                        </h6>
-                                        <a href="#book">Reserva ahora</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="col-md-4 py-3 py-md-0">
-                                <div className="card">
-                                    <img src={luxor} alt="" />
-                                    <div className="card-body">
-                                        <h3>Wyndham Garden</h3>
-                                        <p>
-                                            Es un hotel de 4 estrellas conocido
-                                            por su forma piramidal inspirada en el Antiguo Egipto.
-                                        </p>
-                                        <div className="star">
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star checked"></i>
-                                            <i className="fa-solid fa-star "></i>
-                                        </div>
-                                        <h6>
-                                            Precio: <strong>Q715</strong>
-                                        </h6>
-                                        <a href="#book">Reserva ahora</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div>
+
                             <RoomCard rooms={rooms} />
                         </div>
 

@@ -1,6 +1,8 @@
 'use strict'
 
 import Room from './room.model.js'
+import Hotel from '../hotel/hotel.model.js'
+
 
 export const saveRoom = async(req, res)=>{
     try{
@@ -58,28 +60,27 @@ export const deleteRoom = async(req, res)=>{
 
 export const getRooms = async(req, res) =>{
     try {
-        let data = await Room.find()
-
-        const rooms = data
-        .map((data)=>{
-            return{
-                id: data._id,
-                number: data.number,
-                description: data.description,
-                capacity: data.capacity,
-                type:data.type,
-                price: data.price,
-                status: data.status,
-                hotelid: data.hotelid
-            }
-        })
-
-        return res.status(200).json({rooms})
-
+        let roomsData = await Room.find();
         
+        // Crear una lista de promesas para buscar hoteles
+        const roomsWithHotels = await Promise.all(roomsData.map(async (room) => {
+            let hotel = await Hotel.findById(room.hotelid);
+            return {
+                id: room._id,
+                number: room.number,
+                description: room.description,
+                capacity: room.capacity,
+                type: room.type,
+                price: room.price,
+                status: room.status,
+                hotelName: hotel ? hotel.name : 'Hotel not found'  // Manejar el caso en que el hotel no se encuentre
+            };
+        }));
+        
+        return res.status(200).json({ rooms: roomsWithHotels });
     } catch (error) {
-        console.error(error)
-        return res.status(500).send({message: 'Error getting rooms'})
+        console.error('Error:', error);
+        return res.status(500).send({ message: 'Error retrieving rooms and hotels.' });
     }
 }
 

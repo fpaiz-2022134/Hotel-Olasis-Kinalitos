@@ -21,7 +21,7 @@ const api = express.Router()
 
 api.post('/test', test)
 api.post('/addHotel', [validateJwt, isAdmin], addHotel)
-api.get('/getHotels', [validateJwt],getHotels)
+api.get('/getHotels',getHotels)
 api.get('/getHotel/:id', [validateJwt],getHotel)
 api.put('/updateHotel/:id', [validateJwt, isAdmin],updateHotel)
 api.delete('/deleteHotel/:id', [validateJwt, isAdmin],deleteHotel)

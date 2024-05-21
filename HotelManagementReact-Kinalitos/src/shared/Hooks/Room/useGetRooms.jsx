@@ -22,7 +22,7 @@ export const useGetRooms = () => {
             return toast.error(
                 response?.err?.response?.data?.msg ||
                 response?.err?.data?.msg ||
-                'Error al registrar el usuario, intenta de nuevo.'
+                'Error al obtener las habitaciones.'
             )
         }
         console.log(response)

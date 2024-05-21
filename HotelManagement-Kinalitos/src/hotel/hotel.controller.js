@@ -3,6 +3,9 @@
 import Hotel from './hotel.model.js'
 import { checkUpdate } from '../utils/validator.js'
 
+import Service from '../service/service.model.js'
+import Category from '../category/category.model.js'
+
 export const test = (req, res) => {
     return res.send('Hello World')
 }
@@ -27,8 +30,29 @@ export const addHotel = async (req, res) => {
 
 export const getHotels = async (req, res) => {
     try {
-        let hotels = await Hotel.find()
-        return res.status(200).send(hotels)
+        let hotelsData = await Hotel.find()
+        
+        //Creamos una lista de promesas para buscar hoteles y su información
+        const hotelsInformation = await Promise.all(hotelsData.map(async(hotel) =>{
+            let services = await Service.find({ _id: { $in: hotel.service} });
+            let category = await Category.findById(hotel.category)
+            return {
+                id: hotel._id,
+                name: hotel.name,
+                description: hotel.description,
+                address: hotel.address,
+                phone: hotel.phone,
+                email: hotel.email,
+                assessment: hotel.assessment,
+                service: services.map(service => service.name) ,
+                category: category ? category.name : 'Category not found',
+                image: hotel.image
+            }
+        }))
+
+
+        return res.status(200).json({ hotels: hotelsInformation });
+
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error getting the hotels.' })

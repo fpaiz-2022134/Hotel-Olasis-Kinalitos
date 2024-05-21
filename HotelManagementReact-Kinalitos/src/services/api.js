@@ -5,6 +5,32 @@ const apiClient = axios.create({
     timeout: 5000
 })
 
+
+export const registerRequest = async(data) => {
+    try{
+      return await apiClient.post('/user/register', data)
+    }catch(err){
+      return{
+        error: true,
+        err 
+      }
+    }
+  }
+  
+  export const loginRequest = async(data) => {
+    try{
+      return await apiClient.post('/user/login', data)
+    }catch(err){
+      return{
+        error: true,
+        err 
+      }
+    }
+  }
+
+
+
+
 export const getRoomsRequest = async()=>{
     try {
         return await apiClient.get('/room/getRooms')   
@@ -13,6 +39,18 @@ export const getRoomsRequest = async()=>{
             error: true,
             err
         }
+    }
+}
+
+
+export const getHotelsRequest = async()=>{
+    try {
+        return await apiClient.get('/hotel/getHotels')    
+    } catch (err) {
+       return{
+        error: true,
+        err
+       } 
     }
 }
 

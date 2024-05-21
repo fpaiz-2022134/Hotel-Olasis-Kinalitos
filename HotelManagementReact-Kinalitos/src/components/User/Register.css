@@ -1,0 +1,128 @@
+:root {
+    --primary-color: #a7e8d8;
+    --secondary-color: #1e3bb0;
+    --accent-color: #ffa500;
+    --background-color: #2a6acb;
+    --border-color: #4ba9df;
+    --shadow-color: rgba(49, 202, 172, 0.8);
+    --text-color: #1e3bb0;
+    --hover-color: #79d4bc;
+    --white-color: #ffffff;
+  }
+  
+  .login-container,
+  .register-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 40px;
+    background: var(--primary-color);
+    border-radius: 35px;
+    border: 1px solid var(--border-color);
+    box-shadow: 10px 10px 10px var(--shadow-color);
+  }
+  
+  .login-form,
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 60%;
+    padding: 20px;
+  }
+  
+  .login-form h2,
+  .register-form h2 {
+    font-size: 40px;
+    font-family: 'Roboto', sans-serif;
+    color: var(--text-color);
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  .user-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .user-form input {
+    margin: 15px 0;
+    padding: 15px;
+    width: 100%;
+    max-width: 500px;
+    background-color: var(--background-color);
+    border: none;
+    border-radius: 5px;
+    color: var(--white-color);
+    font-size: 16px;
+  }
+  
+  .user-form button {
+    cursor: pointer;
+    background-color: var(--accent-color);
+    color: var(--white-color);
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 500px;
+    height: 50px;
+    font-weight: 500;
+    margin-top: 30px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .user-form button:hover {
+    background-color: var(--hover-color);
+  }
+  
+  .user-form button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  
+  .letras {
+    font-family: 'Roboto', sans-serif;
+    margin-top: 20px;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: color 0.3s ease;
+    text-align: center;
+  }
+  
+  .letras:hover {
+    color: var(--accent-color);
+  }
+  
+  .hotel-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+  }
+  
+  @media (max-width: 768px) {
+    .login-container,
+    .register-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .login-form,
+    .register-form {
+      width: 90%;
+    }
+  
+    .user-form input,
+    .user-form button {
+      width: 100%;
+    }
+  
+    .hotel-image {
+      margin-top: 20px;
+    }
+  }

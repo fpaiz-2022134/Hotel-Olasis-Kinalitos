@@ -1,0 +1,65 @@
+.hotel-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 16px;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+  
+  .hotel-card {
+    flex: 0 1 32%; /* Ajusta el ancho de cada tarjeta */
+    box-sizing: border-box;
+    margin: 16px 0; /* Espacio vertical entre las tarjetas */
+    max-width: 32%; /* Asegura que cada tarjeta no exceda el tamaño deseado */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+
+  .hotel-card img {
+    width: 100%;
+    height: 200px; /* Ajusta la altura de la imagen según sea necesario */
+    object-fit: cover;
+}
+  
+  .hotel-card-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .hotel-card-text {
+    margin-bottom: 10px;
+  }
+  
+  .hotel-card-text-user {
+    font-size: 18px;
+    font-weight: bold;
+    color: #337ab7;
+  }
+  
+  .star {
+    margin-bottom: 20px;
+  }
+  
+  .star i {
+    color: #ffd700;
+    margin-right: 5px;
+  }
+  
+  .hotel-card-buttons {
+    margin-top: 20px;
+  }
+  
+  .hotel-card-button {
+    background-color: #27c834;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+  
+  .hotel-card-button:hover {
+    opacity: 0.8;
+  }

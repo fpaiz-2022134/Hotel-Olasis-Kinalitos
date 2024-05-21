@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import { useState } from "react";
 
+import luxor from "../../assets/Luxor.png"
+
 import './RoomCard.css'
 
 
@@ -19,7 +21,8 @@ export const RoomCard = ({ rooms = [] }) => {
             capacity: '',
             type: '',
             status: '',
-            hotelid: ''
+            /* hotelid: '', */
+            hotelName: ''
         }
 
 
@@ -30,6 +33,8 @@ export const RoomCard = ({ rooms = [] }) => {
         <div className="room-list">
             {rooms.map((room) => (
                 <div key={room.id} className="room-card card text-center">
+
+                    <img src={luxor} alt="" />
                     <div className="card-header">
                         <h5 className="room-card-title">{room.number}</h5>
                     </div>
@@ -38,6 +43,7 @@ export const RoomCard = ({ rooms = [] }) => {
                         <p className="room-card-text"><strong>Capacidad:</strong> {room.capacity}</p>
                         <p className="room-card-text"><strong>Tipo de habitación:</strong> {room.type}</p>
                         <p className="room-card-text-user">Precio: {room.price}</p>
+                        <p className="room-card-text-user">Hotel: {room.hotelName}</p>
                         <div className="star">
                             <i className="fa-solid fa-star checked"></i>
                             <i className="fa-solid fa-star checked"></i>
@@ -46,13 +52,13 @@ export const RoomCard = ({ rooms = [] }) => {
                             <i className="fa-solid fa-star checked"></i>
                         </div>
                         <div className="room-card-buttons d-flex justify-content-center">
-                            <div className="room-card-button bg-primary text-white rounded-pill px-3 py-2 me-3">
+                            <div className="room-card-button  bg-primary text-white rounded-pill px-3 py-2 me-3">
                                 {room.status}
                             </div>
                             {/* <div className="room-card-button bg-secondary text-white rounded-pill px-3 py-2">
                                 <p className="m-0">{room.hotelid.name}</p>
                             </div> */}
-                            <button className="room-card-button bg-danger text-white rounded-pill px-3 py-2 ms-3">
+                            <button className="room-card-button  text-white rounded-pill px-3 py-2 ms-3">
                                 Reservar
                             </button>
                         </div>
