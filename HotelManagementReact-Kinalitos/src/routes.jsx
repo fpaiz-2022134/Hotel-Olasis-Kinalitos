@@ -1,5 +1,6 @@
 import { Room } from "./pages/Room/Room.jsx"
 import { User } from "./pages/Users/User.jsx"
+import { Hotel } from "./pages/Hotel/Hotel.jsx"
 
 export const routes = [
     {
@@ -9,5 +10,9 @@ export const routes = [
     {
         path: '/room',
         element: <Room/>
+    },
+    {
+        path: '/hotel',
+        element: <Hotel />
     }
 ]

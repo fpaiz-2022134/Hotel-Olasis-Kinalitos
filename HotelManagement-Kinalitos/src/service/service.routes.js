@@ -10,7 +10,7 @@ api.post('/save', [validateJwt, isAdmin], saveS)
 api.put('/update/:id', [validateJwt, isAdmin], updateS)
 api.delete('/delete/:id', [validateJwt, isAdmin], deleteS)
 
-api.get('/get',[validateJwt], getS)
+api.get('/get', getS)
 api.get('/search/:id',[validateJwt], searchS)
 api.get('/gethotel/:id',[validateJwt], getHotels)
 

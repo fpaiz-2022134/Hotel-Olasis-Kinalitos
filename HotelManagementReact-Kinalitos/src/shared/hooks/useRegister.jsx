@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { registerRequest } from '../../services/api.js'
+import { registerRequest } from '../../services/api'
 import toast from 'react-hot-toast'
 
 export const useRegister = () => {

@@ -36,7 +36,6 @@ const hotelSchema = Schema({
             required: true
         }]
     }
-
     ,
     category: {
         type: Schema.Types.ObjectId,
