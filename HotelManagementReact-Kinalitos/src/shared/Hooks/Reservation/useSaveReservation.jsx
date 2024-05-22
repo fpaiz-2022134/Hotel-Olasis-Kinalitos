@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { saveHotelRequest } from "../../../services/api"
+import { saveReservationRequest } from "../../../services/api"
 import toast from 'react-hot-toast'
 
 export const useSaveReservation = () => {
@@ -12,11 +12,11 @@ export const useSaveReservation = () => {
     const response = await saveReservationRequest(reservation)
     setIsLoading(false)
     if (response.error) {
-      toast.error('Error al guardar el reservacion')
+      toast.error('Error al guardar la reservacion')
     } else {
       toast.success('Reservacion guardado con éxito!')
     }
-    navigate('/reservacion')
+    navigate('/reservation')
   }
 
 

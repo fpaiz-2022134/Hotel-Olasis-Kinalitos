@@ -2,18 +2,14 @@
 
 import { Router } from 'express'
 
-import { addReservation, updateReservation, searchReservation, changeStatus } from './reservation.controller.js'
+import { addReservation, updateReservation, searchReservation, changeStatus, getReservations} from './reservation.controller.js'
 
-import {
-    validateJwt,
-    isAdmin,
-    isClient,
-} from '../middlewares/validate-jwt.js'
 
 const api = Router()
 
-api.post('/addReservation', [validateJwt, isClient], addReservation)
-api.put('/updateR/:id', [validateJwt, isClient],updateReservation)
-api.get('/searchReservation/:id',[validateJwt, isAdmin], searchReservation)
-api.put('/changeStatus/:id',[validateJwt, isAdmin] ,changeStatus)
+api.post('/addReservation', addReservation)
+api.put('/updateR/:id',updateReservation)
+api.get('/searchReservation/:id', searchReservation)
+api.put('/changeStatus/:id',changeStatus)
+api.get('/getReservations', getReservations)
 export default api

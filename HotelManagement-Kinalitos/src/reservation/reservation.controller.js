@@ -6,9 +6,8 @@ import Reservation from './reservation.model.js'
 export const addReservation = async(req, res)=>{
     try {
         let data = req.body
-        data.status = true
-        let reservation = new Reservation(data)
-        await reservation.save()
+        let reserva = new Reservation(data)
+        await reserva.save()
         return res.status(200).send({message: 'Reservation registered successfully.'})
     } catch (err) {
         console.error(err)
@@ -62,32 +61,23 @@ export const searchReservation = async(req, res) =>{
     }
 }
 
-/* export const searchReservation = async(req, res) =>{
+export const getReservations = async (req, res) => {
     try {
-        let {search} = req.body
-        let reservation = await Reservation.find({
-            $or: [
-                { _id: search }
-            ]
-        })
-        if(reservation.length == 0) return res.status(404).send({ message: 'Room not found' })
-        return res.send({ message: 'Reservation found', reservation })
-    } catch (error) {
-        console.error(error)
-        return res.status(500).send({message: 'Error searching reservation'})
-    }
-} */
+        let data = await Reservation.find()
 
-
-/* 
-export const hotelReservation = async (req, res) => {
-    try {
-        let { id } = req.params;
-        let reservations = await Reservation.find({ adminHotel: id });
-        return res.status(200).send({ reservations });
-    } catch (e) {
-        console.error(e);
-        return res.status(500).send({ message: 'Error getting' });
+        const Reservaciones = data
+            .map((data) => {
+                return {
+                    id: data._id,
+                    entryDate: data.entryDate,
+                    departureDate: data.departureDate,
+                    price: data.price,
+                    roomId: data.roomId
+                }
+            })
+        return res.status(200).json({Reservations: Reservaciones})
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({ message: 'Error getting the reservations.' })
     }
 }
-*/

@@ -14,7 +14,6 @@ export const saveRoom = async(req, res)=>{
     }
 }
 
-
 export const addRoom = async(req, res)=>{
     try {
         let data = req.body

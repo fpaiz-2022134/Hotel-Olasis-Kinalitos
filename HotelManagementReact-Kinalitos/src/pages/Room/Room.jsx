@@ -1,12 +1,7 @@
-import { ShowRooms } from "../../components/Room/ShowRooms"
-
-
+import React from 'react'
 
 export const Room = () => {
   return (
-    <>
-    <ShowRooms/>
-    
-    </>
-)
+    <div>room</div>
+  )
 }

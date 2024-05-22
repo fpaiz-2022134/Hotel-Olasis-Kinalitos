@@ -1,17 +1,21 @@
 import { useState } from 'react'
-import { loginRequest } from '../../services/api.js'
+import { registerRequest } from '../../services/api'
 import toast from 'react-hot-toast'
 
-export const useLogin = () => {
+export const useRegister = () => {
     const [ isLoading, setIsLoading] = useState(false)
-    const login = async(email, password) => {
+    const register = async(name, surname, email, username, phone, password) => {
         setIsLoading(true)
         const user = {
+            name,
+            surname,
             email,
-            password
+            username,
+            phone,
+            password,
         } 
 
-        const response = await loginRequest(user)
+        const response = await registerRequest(user)
         setIsLoading(false)
         if(response.error){
             if( response?.err.response?.data?.errors){
@@ -24,16 +28,16 @@ export const useLogin = () => {
             return toast.error(
                 response?.err.response?.data?.msg || 
                 response?.err?.data?.msg ||
-                'Error al intentar iniciar sesión'
+                'Error al registrar el usuario, intenta de nuevo.'
             )
-        } else {
-            toast.success('¡Inicio de sesión exitoso!') 
+        }else {
+            toast.success('¡Felicidades! Te has registrado exitosamente') 
         }
         console.log(response)
     }
-    
+
     return {
-        login,
+        register,
         isLoading
     }
 }
