@@ -46,7 +46,11 @@ export const defaultAdmin = async(nameA, surnameA, usernameA, emailA, passwordA,
     }
 }
 
+<<<<<<< HEAD
 defaultAdmin('Luis', 'Marroquin', 'lmarroquin', 'lmarroquin@gmail.com', '12345678', '56566565', 'ADMIN')
+=======
+defaultAdmin('Luis', 'Marroquin', 'lmarroquin', 'lmarroquin@gmail.com', '234', '56566565', 'ADMIN')
+>>>>>>> 8e047cfebacae7d73fe289a8dabed787dc7fc2d5
 
 
 export const changeRol = async(req, res)=> {
