@@ -42,6 +42,10 @@ const hotelSchema = Schema({
         type: Schema.Types.ObjectId,
         ref: 'category',
         required: true
+    },
+    image :{
+        type: String,
+        required: false
     }
 })
 

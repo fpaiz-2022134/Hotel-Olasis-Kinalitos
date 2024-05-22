@@ -50,8 +50,8 @@ export const deleteS = async(req, res)=>{
 
 export const getS = async(req, res)=>{
     try{
-        let service = await Service.find()
-        return res.send({ service })
+        let services = await Service.find()
+        return res.send({ services })
     }catch(err){
         console.error(err)
         return res.status(500).send({message: 'Error getting Services'})

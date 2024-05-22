@@ -18,8 +18,8 @@ import {
 
 const api = express.Router()
 
-api.post('/addCategory',[validateJwt, isAdmin], addCategory)
-api.get('/getCategories',[validateJwt], getCategories)
+api.post('/addCategory', addCategory)
+api.get('/getCategories', getCategories)
 api.get('/getCategory/:id', [validateJwt, isAdmin], getCategory)
 api.put('/updateCategory/:id', [validateJwt, isAdmin],updateCategory)
 api.delete('/deleteCategory/:id', [validateJwt, isAdmin], deleteCategory)

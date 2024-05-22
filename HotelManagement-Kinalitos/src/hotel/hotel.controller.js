@@ -27,8 +27,24 @@ export const addHotel = async (req, res) => {
 
 export const getHotels = async (req, res) => {
     try {
-        let hotels = await Hotel.find()
-        return res.status(200).send(hotels)
+        let data = await Hotel.find()
+
+        const hotelsInformation = data
+            .map((data) => {
+                return {
+                    id: data._id,
+                    name: data.name,
+                    description: data.description,
+                    address: data.address,
+                    phone: data.phone,
+                    email: data.email,
+                    assessment: data.assessment,
+                    service: data.service,
+                    category: data.category,
+                    image: data.image
+                }
+            })
+        return res.status(200).json({hotels: hotelsInformation})
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error getting the hotels.' })
@@ -38,7 +54,7 @@ export const getHotels = async (req, res) => {
 export const getHotel = async (req, res) => {
     try {
         //Getting the id
-        let {id} = req.params
+        let { id } = req.params
         //Finding the hotel
         let hotel = await Hotel.findById(id)
         //Verifying the hotel
@@ -46,7 +62,7 @@ export const getHotel = async (req, res) => {
         return res.status(200).send(hotel)
     } catch (err) {
         console.error(err)
-        return res.status(500).send({message: 'Error getting the hotel.'})
+        return res.status(500).send({ message: 'Error getting the hotel.' })
     }
 }
 
