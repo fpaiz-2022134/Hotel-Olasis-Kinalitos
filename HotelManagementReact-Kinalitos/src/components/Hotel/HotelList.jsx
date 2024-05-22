@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
 import { getHotelesRequest, getServiceRequest, getCategoryRequest } from "../../services/api"
+import './HotelCard.css'
 
 export const HotelList = ({ setSelectedHotel }) => {
     const [hotels, setHotels] = useState([])
@@ -10,8 +11,8 @@ export const HotelList = ({ setSelectedHotel }) => {
         const fetchData = async () => {
             try {
                 const hotelsResponse = await getHotelesRequest()
-                if (hotelsResponse.data && Array.isArray(hotelsResponse.data.hoteles)) {
-                    setHotels(hotelsResponse.data.hoteles)
+                if (hotelsResponse.data && Array.isArray(hotelsResponse.data.hotels)) {
+                    setHotels(hotelsResponse.data.hotels)
                 } else {
                     console.error("Error al obtener hoteles:", hotelsResponse)
                 }
@@ -53,36 +54,37 @@ export const HotelList = ({ setSelectedHotel }) => {
 
     return (
         <div>
-            <div className="container" style={{ marginLeft: '1em', maxWidth: '84em', overflowX: 'auto', maxHeight: '65vh' }}>
-                <table className="table" style={{ width: '81em' }}>
-                    <thead>
-                        <tr className="text-center">
-                            <th>Nombre</th>
-                            <th>Descripción</th>
-                            <th>Dirección</th>
-                            <th>Teléfono</th>
-                            <th>Correo</th>
-                            <th>Calificación</th>
-                            <th>Servicios</th>
-                            <th>Categoría</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {hotels.map(hotel => (
-                            <tr key={hotel._id} onClick={() => handleRowClick(hotel)}>
-                                <td>{hotel.name}</td>
-                                <td>{hotel.description}</td>
-                                <td>{hotel.address}</td>
-                                <td>{hotel.phone}</td>
-                                <td>{hotel.email}</td>
-                                <td>{hotel.assessment}</td>
-                                <td>{hotel.service.map(serviceId => getServiceNameById(serviceId))}</td>
-                                <td>{getCategoryNameById(hotel.category)}</td>
-                            </tr>
-                        ))}
-                    </tbody>
-                </table>
-            </div>
-        </div>
+    <div className="container" style={{ marginLeft: '1em', maxWidth: '84em', overflowX: 'auto', maxHeight: '75vh', cursor: 'pointer' }}>
+        <table className="table" style={{ width: '81em' }}>
+            <thead>
+                <tr className="text-center">
+                    <th>Nombre</th>
+                    <th>Descripción</th>
+                    <th>Dirección</th>
+                    <th>Teléfono</th>
+                    <th>Email</th>
+                    <th>Calificación</th>
+                    <th>Servicios</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+                {hotels.map(hotel => (
+                    <tr key={hotel.id} onClick={() => handleRowClick(hotel)}>
+                        <td>{hotel.name}</td>
+                        <td>{hotel.description}</td>
+                        <td>{hotel.address}</td>
+                        <td>{hotel.phone}</td>
+                        <td>{hotel.email}</td>
+                        <td>{hotel.assessment}</td>
+                        <td>{hotel.service.map(serviceId => getServiceNameById(serviceId))}</td>
+                        <td>{getCategoryNameById(hotel.category)}</td>
+                    </tr>
+                ))}
+            </tbody>
+        </table>
+    </div>
+</div>
+
     )
 }

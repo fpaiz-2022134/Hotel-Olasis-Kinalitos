@@ -29,7 +29,7 @@ export const getHotels = async (req, res) => {
     try {
         let data = await Hotel.find()
 
-        const hoteles = data
+        const hotelsInformation = data
             .map((data) => {
                 return {
                     id: data._id,
@@ -40,10 +40,11 @@ export const getHotels = async (req, res) => {
                     email: data.email,
                     assessment: data.assessment,
                     service: data.service,
-                    category: data.category
+                    category: data.category,
+                    image: data.image
                 }
             })
-        return res.status(200).send({msg: 'Los hoteles son', hoteles})
+        return res.status(200).json({hotels: hotelsInformation})
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error getting the hotels.' })

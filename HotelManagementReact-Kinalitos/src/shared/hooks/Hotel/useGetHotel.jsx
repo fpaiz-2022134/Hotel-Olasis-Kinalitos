@@ -2,7 +2,7 @@ import { useState } from "react"
 import { getHotelesRequest } from "../../../services/api"
 
 export const useGetHotel = () => {
-    const [hoteles, sethoteles] = useState(null)
+    const [hotels, sethoteles] = useState(null)
 
     const getHoteles = async()=>{
         const response = await getHotelesRequest()
@@ -15,8 +15,8 @@ export const useGetHotel = () => {
         sethoteles(response.data)
     }
   return {
-    posts,
-    isFetching: !hoteles,
+    hotels,
+    isFetching: !hotels,
     getHoteles
   }
 }

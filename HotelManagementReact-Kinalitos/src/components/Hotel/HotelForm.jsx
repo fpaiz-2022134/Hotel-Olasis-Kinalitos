@@ -5,7 +5,7 @@ import { useDeleteHotel } from "../../shared/hooks/Hotel/useDeleteHotel"
 import toast from 'react-hot-toast'
 import { useUpdateHotel } from "../../shared/hooks/Hotel/useUpdateHotel"
 
-export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
+export const HotelForm = ({ selectedHotel }) => {
     const { isLoading, saveHotel } = useSaveHotel()
     const { updateHotel } = useUpdateHotel()
     const { deleteHotel } = useDeleteHotel()
@@ -18,7 +18,8 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
         email: '',
         assessment: '',
         service: '',
-        category: ''
+        category: '',
+        image: ''
     })
 
     const [services, setServices] = useState([])
@@ -61,7 +62,8 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
                 email: selectedHotel.email,
                 assessment: selectedHotel.assessment,
                 service: selectedHotel.service,
-                category: selectedHotel.category
+                category: selectedHotel.category,
+                image: selectedHotel.image
             })
         }
     }, [selectedHotel])
@@ -93,9 +95,10 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
             email: '',
             assessment: '',
             service: '',
-            category: ''
+            category: '',
+            image: ''
         })
-        setSelectedHotel(null)
+        selectedHotel(null)
     }
 
     const handleUpdate = async () => {
@@ -116,9 +119,10 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
             email: '',
             assessment: '',
             service: '',
-            category: ''
+            category: '',
+            image: ''
         })
-        setSelectedHotel(null)
+        selectedHotel(null)
     }
 
     const handleCancel = () => {
@@ -131,34 +135,35 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
             email: '',
             assessment: '',
             service: '',
-            category: ''
+            category: '',
+            image: ''
         })
-        setSelectedHotel(null)
+        selectedHotel(null)
     }
 
     return (
-        <div className="container d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: '#4ba9df', width: '100%', height: '65vh', marginLeft: '20px' }}>
-            <div style={{ marginBottom: '60px' }}>
-                <h2>Hotel</h2>
+        <div className="container d-flex flex-column justify-content-center align-items-center" style={{ backgroundColor: '#4ba9df', width: '100%', height: '75vh', marginLeft: '20px' }}>
+            <div style={{ marginBottom: '60px'}}>
+                <h2 className="hotel-card-title">Hotel</h2>
             </div>
             <form onSubmit={handleSubmit}>
                 <div className="row mb-3" style={{ width: '45em' }}>
                     <div className="col-md-6">
-                        <label htmlFor="name" className="form-label">Nombre</label>
+                        <label htmlFor="name" className="form-label hotel-card-title">Nombre</label>
                         <input value={formData.name} onChange={handleChange} name="name" type="text" className="form-control" id="name" />
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="phone" className="form-label">Teléfono</label>
+                        <label htmlFor="phone" className="form-label hotel-card-title">Teléfono</label>
                         <input value={formData.phone} onChange={handleChange} name="phone" type="text" className="form-control" id="phone" />
                     </div>
                 </div>
                 <div className="row mb-3" style={{ width: '45em' }}>
                     <div className="col-md-6">
-                        <label htmlFor="address" className="form-label">Dirección</label>
+                        <label htmlFor="address" className="form-label hotel-card-title">Dirección</label>
                         <input value={formData.address} onChange={handleChange} name="address" type="text" className="form-control" id="address" />
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="service" className="form-label">Tipos de Servicios</label>
+                        <label htmlFor="service" className="form-label hotel-card-title">Tipos de Servicios</label>
                         <select value={formData.service} onChange={handleChange} name="service" className="form-control" id="service">
                             <option value="">Seleccione un servicio</option>
                             {services.map(service => (
@@ -169,11 +174,11 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
                 </div>
                 <div className="row mb-3" style={{ width: '45em' }}>
                     <div className="col-md-6">
-                        <label htmlFor="assessment" className="form-label">Calificación</label>
+                        <label htmlFor="assessment" className="form-label hotel-card-title">Calificación</label>
                         <input value={formData.assessment} onChange={handleChange} name="assessment" type="text" className="form-control" id="assessment" />
                     </div>
                     <div className="col-md-6">
-                        <label htmlFor="category" className="form-label">Tipos de Categorías</label>
+                        <label htmlFor="category" className="form-label hotel-card-title">Tipos de Categorías</label>
                         <select value={formData.category} onChange={handleChange} name="category" className="form-control" id="category">
                             <option value="">Seleccione una categoría</option>
                             {categories.map(category => (
@@ -183,12 +188,16 @@ export const HotelForm = ({ selectedHotel, setSelectedHotel }) => {
                     </div>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="email" className="form-label">Correo</label>
+                    <label htmlFor="email" className="form-label hotel-card-title">Email</label>
                     <input value={formData.email} onChange={handleChange} name="email" type="email" className="form-control" id="email" />
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Descripción</label>
+                    <label htmlFor="description" className="form-label hotel-card-title">Descripción</label>
                     <input value={formData.description} onChange={handleChange} name="description" type="text" className="form-control" id="description" style={{ width: '100%', height: '6em' }} />
+                </div>
+                <div className="mb-3">
+                    <label htmlFor="image" className="form-label hotel-card-title">Imagen URL</label>
+                    <input value={formData.image} onChange={handleChange} name="image" type="text" className="form-control" id="image" />
                 </div>
                 <div className="d-flex justify-content-center" >
                     <button style={{ marginRight: '2em' }} type="submit" className="btn btn-success" disabled={isLoading}>Agregar</button>
