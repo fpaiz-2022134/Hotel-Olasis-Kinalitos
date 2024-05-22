@@ -196,6 +196,12 @@
     }
 }
 
+.changecontent::after {
+    content: ' ';
+    color: #ffa500;
+    text-shadow: 0px 1px 1px #5c9b82;
+    animation: changetext 20s infinite linear; /* Cambiado de 30s a 20s */
+}
 .home .content p {
     color: #ffffff;
 

@@ -6,8 +6,8 @@ import { usernameValidationMessage, validateUsername } from "../../shared/valida
 import { phoneValidationMessage, validatePhone } from "../../shared/validators2/phone.validator.js"
 import { useState } from "react"
 import {useRegister} from "../../shared/Hooks/User/useRegister.jsx"
-import { Input } from "./Input.jsx"
 
+import { InputUser } from "./InputUser.jsx"
 import "./Register.css"
 
 export const Register = ({ switchUserhHandler }) => {
@@ -129,7 +129,7 @@ export const Register = ({ switchUserhHandler }) => {
         <div className="register-container">
             <h2>Sign Up</h2>
             <form className="user-form" onSubmit={handleRegister}>
-                <Input
+                <InputUser
                     field='name'
                     label='NAME'
                     type='text'
@@ -139,7 +139,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.name.showError}
                     validationMessage={textValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='surname'
                     label='SURNAME'
                     type='text'
@@ -149,7 +149,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.surname.showError}
                     validationMessage={textValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='email'
                     label='EMAIL'
                     type='text'
@@ -159,7 +159,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.email.showError}
                     validationMessage={emailValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='username'
                     label='USERNAME'
                     type='text'
@@ -169,7 +169,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.username.showError}
                     validationMessage={usernameValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='phone'
                     label='PHONE'
                     type='phone'
@@ -179,7 +179,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.phone.showError}
                     validationMessage={phoneValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='password'
                     label='PASSWORD'
                     type='password'
@@ -189,7 +189,7 @@ export const Register = ({ switchUserhHandler }) => {
                     showErrorMessage={formData.password.showError}
                     validationMessage={passwordValidationMessage}
                 />
-                <Input
+                <InputUser
                     field='passwordConfirm'
                     label='PASSWORD CONFIRMATION'
                     type='password'

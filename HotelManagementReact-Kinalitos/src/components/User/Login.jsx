@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Input } from "./Input.jsx";
+import { InputUser } from "./InputUser.jsx";
 import { validateEmail, emailValidationMessage } from "../../shared/validators2/input.validator.js";
 import { passwordValidationMessage, validatePassword } from "../../shared/validators2/password.validator.js";
 
@@ -69,7 +69,7 @@ export const Login = ({ switchUserhHandler }) => {
       <div className="login-form">
         <h2>Login</h2>
         <form className="user-form" onSubmit={handleLogin}>
-          <Input
+          <InputUser
             field='email'
             label='Email'
             type='text'
@@ -79,7 +79,7 @@ export const Login = ({ switchUserhHandler }) => {
             showErrorMessage={formData.email.showError}
             validationMessage={emailValidationMessage}
           />
-          <Input
+          <InputUser
             field='password'
             label='Password'
             type='password'

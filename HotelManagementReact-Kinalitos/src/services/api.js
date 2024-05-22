@@ -54,3 +54,25 @@ export const getHotelsRequest = async()=>{
     }
 }
 
+
+// ----------------------------------------------------------------
+
+// ---------------------- INVOICE  --------------------------------
+
+
+
+export const getInvoicesRequest = async()=>{
+  try {
+    return await apiClient.get('/hotel/getHotels')
+  } catch (err) {
+    return {
+      error: true,
+      err
+    }
+  }
+}
+
+
+
+
+

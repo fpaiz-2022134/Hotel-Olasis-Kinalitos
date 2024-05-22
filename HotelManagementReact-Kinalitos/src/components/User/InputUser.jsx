@@ -1,5 +1,5 @@
 
-export const Input = (
+export const InputUser = (
     {
       field,
       label,
