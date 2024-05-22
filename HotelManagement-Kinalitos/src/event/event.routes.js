@@ -24,7 +24,7 @@ api.post('/saveEvent', [validateJwt, isClient], saveEvent,)
 api.put('/updateEvent/:id', [validateJwt, isAdmin], updateEvent)
 api.put('/changeStatus/:id', [validateJwt, isAdmin], changeStatus)
 api.get('/search/:id', [validateJwt], searchEvent)
-api.get('/getEvents', [validateJwt], getEvents)
+api.get('/getEvents',  getEvents)
 
 api.get('/test', test)
 

@@ -45,6 +45,7 @@ export const getHotels = async (req, res) => {
                 email: hotel.email,
                 assessment: hotel.assessment,
                 service: services.map(service => service.name) ,
+                
                 category: category ? category.name : 'Category not found',
                 image: hotel.image
             }

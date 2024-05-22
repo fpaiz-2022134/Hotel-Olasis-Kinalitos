@@ -4,6 +4,7 @@ import { Hotel } from "./pages/Hotel/Hotel.jsx"
 
 import { User } from "./pages/User/User.jsx"
 import { HomePageAdmin } from "./pages/HomePage/HomePageAdmin.jsx"
+import { Invoice } from "./pages/Invoice/Invoice.jsx"
 
 export const routes = [
     {
@@ -25,5 +26,9 @@ export const routes = [
     {
         path: '/admin/*',
         element: <HomePageAdmin />
+    },
+    {
+        path: '/invoice/*',
+        element: <Invoice />
     }
 ]

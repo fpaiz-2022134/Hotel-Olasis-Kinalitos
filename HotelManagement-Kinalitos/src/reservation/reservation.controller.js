@@ -62,6 +62,20 @@ export const searchReservation = async(req, res) =>{
     }
 }
 
+
+//Doing the get for reservations
+
+export const getReservations = async(req, res)=>{
+    try {
+        let reservations = await Reservation.find()
+        return res.status(200).send({reservations})
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send({ message: 'Error getting the reservations.' })
+    }
+}
+
+
 /* export const searchReservation = async(req, res) =>{
     try {
         let {search} = req.body

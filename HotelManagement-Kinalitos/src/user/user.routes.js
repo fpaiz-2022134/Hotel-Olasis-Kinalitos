@@ -13,10 +13,10 @@ api.put('/update/:id', [validateJwt, isAdmin], updateU)
 api.delete('/delete/:id', [validateJwt, isAdmin], deleteU)
 api.put('/changerol/:id', [validateJwt, isAdmin], changeRol)
 //PUBLIC
-api.post('/register',  registerU)
+api.post('/register', registerU)
 api.post('/login', login)
-api.get('/get', [validateJwt], getU)
-api.get('/search/:id',[validateJwt],  searchU)
+api.get('/get', /* [validateJwt],  */getU)
+api.get('/search/:id', [validateJwt], searchU)
 
 
 export default api

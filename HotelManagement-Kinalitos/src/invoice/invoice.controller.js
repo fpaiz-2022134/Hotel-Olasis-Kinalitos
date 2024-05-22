@@ -93,8 +93,30 @@ export const getMyInvoices = async (req, res) => {
 
 export const getInvoices = async (req, res) => {
     try {
-        let invoices = await Invoice.find()
-        return res.status(200).send(invoices)
+        let invoicesData = await Invoice.find()
+        
+        const invoicesInformation = await Promise.all(invoicesData.map(async(invoice) =>{
+
+            let user = await User.findById(invoice.user)
+            let reservation = await Reservation.findById(invoice.reservation)
+            let event = await Event.findById(invoice.event)
+            return {
+                id: invoice._id,
+                nit: invoice.nit,
+                description: invoice.description,
+                entryDate: invoice.entryDate,
+                departureDate: invoice.departureDate,
+                total: invoice.total,
+                paymentMethod: invoice.paymentMethod,
+                user: user ? user._id : 'User not found',
+                reservation: reservation ? reservation._id : 'Reservation not found',
+                event: event ? event._id : 'Event not found',
+                date: invoice.date
+            }
+        }))
+
+        return res.status(200).json({ invoices: invoicesInformation });
+
     } catch (err) {
         console.error(err)
         return res.status(500).send({ message: 'Error getting the invoices.' })
@@ -128,7 +150,7 @@ export const updateInvoice = async (req, res) => {
         //Checking the input information
         if (data.description != null || data.entryDate != null || data.departureDate != null
             || data.total != null) {
-            return res.status(400).send({ message: 'If you wantto update another information check your reservation.' })
+            return res.status(400).send({ message: 'If you want to update another information check your reservation.' })
         }
 
         //Searching the invoice
